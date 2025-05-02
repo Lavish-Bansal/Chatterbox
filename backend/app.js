@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser";
 import { app, server } from "./socket/socket.js";
 
 app.use(cors({
-    origin: "https://chatterboxchatapp.netlify.app/",
+    origin: '*',
     credentials: true,
   }));
 app.use(urlencoded({extended: true, limit: "16kb"}));
