@@ -35,7 +35,7 @@ This project is a simple chat application designed to demonstrate real-time comm
 
 - In the `frontend` directory, create a `.env` file and add the following:
     ```bash
-    VITE_BASE_URL=http://localhost:8000
+    VITE_BASE_URL=http://localhost:9000
     ```
 
 - In the `backend` directory, create a `.env` file and add the following:
