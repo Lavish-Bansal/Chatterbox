@@ -38,11 +38,18 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
-    // console.log(user);
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!user || !isMatch) {
+    // console.log("user", user);
+
+    if (!user) {
       return res.status(400).json({ error: "Invalid user credential" });
     }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ error: "Invalid user credential" });
+    }
+
+    console.log("User found: ", user);
     createTokenAndSaveCookie(user._id, res);
     res.status(201).json({
       message: "User logged in successfully",
